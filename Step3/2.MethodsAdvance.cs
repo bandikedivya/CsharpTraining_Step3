@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Method1_Advanced;
+using System;
 using System.Runtime.Remoting.Messaging;
 
 namespace Method_Advance
@@ -47,7 +48,7 @@ namespace Method_Advance
         public static Registration UpdateRegistration(Registration registration)
         {
             registration.Name = registration.Name + "  Finn";
-            registration.Age = 25;
+            registration.Age = 40;
             registration.EmailId = "finn@hmail.com";
             return registration;
         }
@@ -133,14 +134,14 @@ namespace Method_Advance
 
         public static Registration[] UpdateRegistartions(Registration[] registrations)
         {
-            foreach(Registration registration in registrations)
+            foreach (Registration registration in registrations)
             {
-                registration.Age = 23;
+                registration.Age = registration.Age + 4;
             }
             return registrations;
         }
-        
-            
+
+
 
         class Program
         {
@@ -148,23 +149,26 @@ namespace Method_Advance
             {
                 //Single Person Registration
                 Registration singlereg1 = RegistrationProcess.GetRegistration1();
-                // Here Registration(we can use "var" or "Dynammic" keyword instead, we should make sure that data is available) is the main class where I have mentioned properties, singlereg1 is the reference name, RegistrationProcess is the class for method definition and GetRegister() is the Method. 
+                Console.WriteLine("*************************Total Registered List*************************");
+
+                // Here Registration(we can use "var" or "Dynamic" keyword instead, we should make sure that data is available) is the main class where I have mentioned properties, singlereg1 is the reference name, RegistrationProcess is the class for method definition and GetRegister() is the Method. 
                 Console.WriteLine($"Name: {singlereg1.Name}, Email id: {singlereg1.EmailId}, Age: {singlereg1.Age}");
 
                 //Here I have used "var" keyword instead Registration
-                // Here Registration(we can use "var" or "Dynammic" keyword instead, we should make sure that data is available) is the main class where I have mentioned properties, singlereg1 is the reference name, RegistrationProcess is the class for method definition and GetRegister() is the Method. 
+                // Here Registration(we can use "var" or "Dynamic" keyword instead, we should make sure that data is available) is the main class where I have mentioned properties, singlereg1 is the reference name, RegistrationProcess is the class for method definition and GetRegister() is the Method. 
                 var singlereg2 = RegistrationProcess.GetRegistration2();
+                Console.WriteLine("*************************Total Registered List*************************");
+
                 Console.WriteLine($"Name: {singlereg2.Name}, Email id: {singlereg2.EmailId}, Age: {singlereg2.Age}");
 
 
+                //Updation Calling
                 var registrationList = RegistrationProcess.GetRegistrations();
-                Console.WriteLine("*************************Total Registered List*************************");
                 foreach (var registration in registrationList)
                 {
                     Console.WriteLine($"Name: {registration.Name}, Email: {registration.EmailId}, Age: {registration.Age}");
                 }
 
-                //Updation Calling
 
                 Registration updation = RegistrationProcess.UpdateRegistration(new Registration()
                 {
@@ -176,16 +180,39 @@ namespace Method_Advance
                 //Updation in list
 
                 Registration updationList = RegistrationProcess.UpdateRegistration(updation);
-                Console.WriteLine($"After updation of Age, Now the Age is: {updation.Age}");
+                
 
-                RegistrationProcess.UpdateRegistartions(registrationList);
+                Registration[] updation2 = RegistrationProcess.UpdateRegistartions(new Registration[] {
+                    new Registration()
+                {
+                    Name = "Marcus",
+                    EmailId = "marcus@gmail.com",
+                    Age = 22
+                },
+                new Registration()
+                {
+                    Name = "Ginny",
+                    EmailId = "ginny@gmail.com",
+                    Age = 16
+                },
+                new Registration()
+                {
+                    Name = "Goergia",
+                    EmailId = "goergia@gmail.com",
+                    Age = 30
+                }
+                });
+
+
+                Registration[] multireg = RegistrationProcess.UpdateRegistartions(registrationList);
+                foreach (Registration registration1 in multireg)
+                {
+                    Console.WriteLine($"Update Registration: {registration1.Name}  updated Age to {registration1.Age}");
+                }
+             
 
 
                 
-                    
-                
-
-
 
 
 

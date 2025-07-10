@@ -162,6 +162,12 @@ namespace Method1_Advanced
             });
 
             Student anotherpeter = StudentOperations.UpdateStudent(singleStudent);
+            //foreach (Student student in )
+            //{
+            //    Console.WriteLine($"{student.Name}'s updated subject: {student.Subject}");
+            //}
+
+            
 
             Console.WriteLine($" Now Peter subject is after updateStudent Method is {peter.Subject}");
 
