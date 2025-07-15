@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Method_Advance.RegistrationProcess.Program</StartupObject>
+    <StartupObject>AsynchronousCalls1.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,9 +48,11 @@
   <ItemGroup>
     <Compile Include="1.MethodsRevision.cs" />
     <Compile Include="2.MethodsAdvance.cs" />
+    <Compile Include="Asyn.cs" />
     <Compile Include="Example.cs" />
     <Compile Include="Method.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Synchronous.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
