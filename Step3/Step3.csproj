@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>AsynchronousCalls1.Program</StartupObject>
+    <StartupObject>SynchronousStudentExample.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,11 +48,16 @@
   <ItemGroup>
     <Compile Include="1.MethodsRevision.cs" />
     <Compile Include="2.MethodsAdvance.cs" />
+    <Compile Include="4.ExtensionMethods.cs" />
+    <Compile Include="5.ExtensionMethods_Datatypes.cs" />
+    <Compile Include="6.ExceptionsHandling.cs" />
     <Compile Include="Asyn.cs" />
     <Compile Include="Example.cs" />
     <Compile Include="Method.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Synchronous.cs" />
+    <Compile Include="SynchronousCalls.cs" />
+    <Compile Include="SynchronousExample.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
