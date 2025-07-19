@@ -54,6 +54,7 @@
     <Compile Include="AsynchronousCalls.cs" />
     <Compile Include="AsynchronousExample1.cs" />
     <Compile Include="AsynchronousWithReturn.cs" />
+    <Compile Include="AsyncRestaurant.cs" />
     <Compile Include="CustomExceptions.cs" />
     <Compile Include="Example.cs" />
     <Compile Include="Method.cs" />

@@ -23,7 +23,7 @@ namespace EmpireRestuarant
             Console.WriteLine("[Table 2] Ordering Food From Menu");
             
             Console.WriteLine("[Table 2] Waiting For The Food");
-            await Task.Delay(15000);  //10 secs
+            await Task.Delay(10000);  //10 secs
             
 
             return $"[Table 2] Completed Eating Food and waiting to pay the amount";
@@ -120,7 +120,7 @@ namespace EmpireRestuarant
             Console.WriteLine($"1.🥦 Veg  \n" + "2. 🍗 Non Veg \n" + "3. 🍛🥦 Veg Curry \n" + "4. 🍛🍗 Non Veg Curry \n");
             int input1 = int.Parse(Console.ReadLine());
 
-           
+
 
 
             //Table 1
@@ -183,9 +183,19 @@ namespace EmpireRestuarant
             var TotalTime3 = DateTime.Now - StartTable3;
             Console.WriteLine("[Table 3] Food Arrived!!, Started Eating Food");
             Console.WriteLine($"Total Time Taken to Arrive Food For Table3 is: {TotalTime3.Milliseconds} secs");
-           
 
 
+
+            string[] AllTables = await Task.WhenAll(Table1, Table2, Table3);
+            foreach(string table in AllTables)
+            {
+                Console.WriteLine(table);
+            }
+
+            await Task.WhenAll(CookTable1, CookTable2, CookTable3);
+
+
+            await Task.WhenAll(ServingTable1, ServingTable2, ServingTable3);
         }
     }
 }
