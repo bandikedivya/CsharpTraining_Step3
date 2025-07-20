@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -52,14 +53,11 @@ namespace SynchronousStudentExample
 
 
 
-
-
-
     }
 
-    class Program
+    class Employee
     {
-        static void Main()
+        public static void EmployeeCounter()
         {
             Console.WriteLine("Students In Queue.............");
             var StartTime = DateTime.Now;
@@ -67,12 +65,35 @@ namespace SynchronousStudentExample
             CollegeFeeCounter.Student1Process("Divya", "18781A0512");
             CollegeFeeCounter.Student2Process("Swapna", "18781A0511");
             CollegeFeeCounter.Student3Process("Usha", "18781A0510");
-           
-            
+
+
             var EndTime = DateTime.Now;
             var TotalTime = EndTime - StartTime;
 
             Console.WriteLine($"Total Time Taken to Complete all Students Fee Payment {TotalTime}");
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+
+
+
+            Employee.EmployeeCounter();
+            //Console.WriteLine("Students In Queue.............");
+            //var StartTime = DateTime.Now;
+
+            //CollegeFeeCounter.Student1Process("Divya", "18781A0512");
+            //CollegeFeeCounter.Student2Process("Swapna", "18781A0511");
+            //CollegeFeeCounter.Student3Process("Usha", "18781A0510");
+           
+            
+            //var EndTime = DateTime.Now;
+            //var TotalTime = EndTime - StartTime;
+
+            //Console.WriteLine($"Total Time Taken to Complete all Students Fee Payment {TotalTime}");
         }
     }
 }
