@@ -117,33 +117,116 @@ namespace EmpireRestuarant1
     {
         static async Task Main()
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.WriteLine("*****************Welcome To Empire Restuarant****************");
+            Console.WriteLine("Enter Your Table Number: ");
+            int tableinput1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("******🍽️🍴 Menu *******");
+            Console.WriteLine($"1.🥦 Veg  \n" + "2. 🍗 Non Veg \n" + "3. 🍛🥦 Veg Curry \n" + "4. 🍛🍗 Non Veg Curry \n");
+            int input1 = int.Parse(Console.ReadLine());
 
 
+
+
+            //Table 1
             Task<string> Table1 = TablesOnRestuarant.Table1Async();
+            await Table1;
+            var StartTable1 = DateTime.Now;
+            Task CookTable1 = CookingChef.CookingProcessTable1();
+            await CookTable1;
+
+            Task ServingTable1 = Server.ServingFoodTable1();
+            await ServingTable1;
+            var ENDTable1 = DateTime.Now;
+            var TotalTime1 = DateTime.Now - StartTable1;
+            Console.WriteLine("[Table 1] Food Arrived!!, Started Eating Food");
+            Console.WriteLine($"Total Time Taken to Arrive Food For Table1 is: {TotalTime1.Milliseconds}  secs");
+
+            Console.WriteLine("\n");
+            Console.WriteLine("*****************Welcome To Empire Restuarant****************");
+            Console.WriteLine("Enter Your Table Number: ");
+            int tableinput2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("******🍽️🍴 Menu *******");
+            Console.WriteLine($"1.🥦 Veg  \n" + "2. 🍗 Non Veg \n" + "3. 🍛🥦 Veg Curry \n" + "4. 🍛🍗 Non Veg Curry \n");
+            int input2 = int.Parse(Console.ReadLine());
+
+
+            //Table 2
             Task<string> Table2 = TablesOnRestuarant.Table2Async();
+            await Table2;
+            var StartTable2 = DateTime.Now;
+            Task CookTable2 = CookingChef.CookingProcessTable2();
+            await CookTable2;
+
+            Task ServingTable2 = Server.ServingFoodTable2();
+            await ServingTable2;
+            var ENDTable2 = DateTime.Now;
+            var TotalTime2 = DateTime.Now - StartTable2;
+            Console.WriteLine("[Table 2] Food Arrived!!, Started Eating Food");
+            Console.WriteLine($"Total Time Taken to Arrive Food For Table2 is: {TotalTime2.Milliseconds} secs");
+
+
+            Console.WriteLine("\n");
+            Console.WriteLine("*****************Welcome To Empire Restuarant****************");
+            Console.WriteLine("Enter Your Table Number: ");
+            int tableinput3 = int.Parse(Console.ReadLine());
+            Console.WriteLine("******🍽️🍴 Menu *******");
+            Console.WriteLine($"1.🥦 Veg  \n" + "2. 🍗 Non Veg \n" + "3. 🍛🥦 Veg Curry \n" + "4. 🍛🍗 Non Veg Curry \n");
+            int input3 = int.Parse(Console.ReadLine());
+
+            //Table 3
             Task<string> Table3 = TablesOnRestuarant.Table3Async();
+            await Table3;
+            var StartTable3 = DateTime.Now;
+            Task CookTable3 = CookingChef.CookingProcessTable3();
+            await CookTable3;
+
+            Task ServingTable3 = Server.ServingFoodTable3();
+            await ServingTable3;
+
+            var ENDTable3 = DateTime.Now;
+            var TotalTime3 = DateTime.Now - StartTable3;
+            Console.WriteLine("[Table 3] Food Arrived!!, Started Eating Food");
+            Console.WriteLine($"Total Time Taken to Arrive Food For Table3 is: {TotalTime3.Milliseconds} secs");
 
 
-            Task Cook1 = CookingChef.CookingProcessTable1();
-            Task Cook2 = CookingChef.CookingProcessTable2();
-            Task Cook3 = CookingChef.CookingProcessTable3();
 
-            Task Server1 = Server.ServingFoodTable1();
-            Task Server2 = Server.ServingFoodTable2();
-            Task Server3 = Server.ServingFoodTable3();
-
-
-
-
-            string[] AllTasks = await Task.WhenAll(Table1, Table2, Table3);
-
-            foreach (string task in AllTasks)
+            string[] AllTables = await Task.WhenAll(Table1, Table2, Table3);
+            foreach (string table in AllTables)
             {
-                Console.WriteLine(task);
+                Console.WriteLine(table);
             }
 
-            await Task.WhenAll(Cook1, Cook2, Cook3);
-            await Task.WhenAll(Server1, Server2, Server3);
+            await Task.WhenAll(CookTable1, CookTable2, CookTable3);
+
+
+            await Task.WhenAll(ServingTable1, ServingTable2, ServingTable3);
+
+            //Task<string> Table1 = TablesOnRestuarant.Table1Async();
+            //Task<string> Table2 = TablesOnRestuarant.Table2Async();
+            //Task<string> Table3 = TablesOnRestuarant.Table3Async();
+
+
+            //Task Cook1 = CookingChef.CookingProcessTable1();
+            //Task Cook2 = CookingChef.CookingProcessTable2();
+            //Task Cook3 = CookingChef.CookingProcessTable3();
+
+            //Task Server1 = Server.ServingFoodTable1();
+            //Task Server2 = Server.ServingFoodTable2();
+            //Task Server3 = Server.ServingFoodTable3();
+
+
+
+
+            //string[] AllTasks = await Task.WhenAll(Table1, Table2, Table3);
+
+            //foreach (string task in AllTasks)
+            //{
+            //    Console.WriteLine(task);
+            //}
+
+            //await Task.WhenAll(Cook1, Cook2, Cook3);
+            //await Task.WhenAll(Server1, Server2, Server3);
 
         }
     }
@@ -151,108 +234,3 @@ namespace EmpireRestuarant1
 
 
 
-
-//using System;
-//using System.Threading.Tasks;
-
-//namespace AsyncronousStudentTasks
-//{
-//    class StudentTasks
-//    {
-//        public static async Task<string> AssingCshaprTaskToGroup1Async()
-//        {
-//            string groupName = "Group1";
-//            int taskDuration = 3000;  // 3 secs
-
-//            Console.WriteLine($"{groupName} started working on the Csharp Task.....");
-
-//            await Task.Delay(taskDuration);
-
-
-//            Console.WriteLine($"{groupName} Complted the Csharp Task in {taskDuration / 1000}.....");  // 3..
-
-//            return $"{groupName}: Task completed in {taskDuration / 1000}";
-
-//        }
-
-//        public static async Task<string> AssingAngularToGroup2Async()
-//        {
-//            string groupName = "Group2";
-//            int taskDuration = 5000;  // 3 secs
-
-//            Console.WriteLine($"{groupName} started working on the Angular Task.....");
-
-//            await Task.Delay(taskDuration);
-
-
-//            Console.WriteLine($"{groupName} Complted the Angular Task in {taskDuration / 1000}.....");  // 3..
-
-//            return $"{groupName}: Task completed in {taskDuration / 1000}";
-
-//        }
-
-//        public static async Task<string> AssingCshaprTaskToGroup3Async()
-//        {
-//            string groupName = "Group3";
-//            int taskDuration = 4000;  // 3 secs
-
-//            Console.WriteLine($"{groupName} started working on the Javascript Task.....");
-
-//            await Task.Delay(taskDuration);
-
-
-//            Console.WriteLine($"{groupName} Complted the Javascript Task in {taskDuration / 1000}.....");  // 3..
-
-//            return $"{groupName}: Task completed in {taskDuration / 1000}";
-
-//        }
-
-
-//    }
-
-//    class Trainer
-//    {
-//        public static async Task TrackGroupTasks()
-//        {
-//            //string firstTask  = await StudentTasks.AssingCshaprTaskToGroup1Async();
-//            //string secondTask = await StudentTasks.AssingAngularToGroup2Async(studnetid);
-//            //string ThirdTask  = await StudentTasks.AssingCshaprTaskToGroup3Async();
-
-//            //string[] allTasks = new string[] { firstTask, secondTask, ThirdTask };
-//            //foreach (string task in allTasks) {
-//            //    Console.WriteLine(task);
-//            //}
-
-//            var starttime = DateTime.Now;
-//            Task<string> group1Task = StudentTasks.AssingCshaprTaskToGroup1Async();
-//            Task<string> group2Task = StudentTasks.AssingAngularToGroup2Async();
-//            Task<string> group3Task = StudentTasks.AssingCshaprTaskToGroup3Async();
-
-//            string[] allResults = await Task.WhenAll(group1Task, group2Task, group3Task);
-
-//            foreach (string result in allResults)
-//            {
-//                Console.WriteLine(result);
-//            }
-
-//            var endtime = DateTime.Now;
-//            var totaltime = endtime - starttime;
-//            Console.WriteLine($"Total time i s {totaltime}");
-//        }
-
-//    }
-
-
-//class Program
-//    {
-//        static async Task Main()
-//        {
-
-//            await Trainer.TrackGroupTasks();
-//            Console.WriteLine("NOw my code is completed");
-//        }
-//    }
-
-
-
-//}

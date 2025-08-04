@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>EmpireRestuarant.Program</StartupObject>
+    <StartupObject>Demo2Student.RefOutParamaeter</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -56,9 +56,13 @@
     <Compile Include="AsynchronousWithReturn.cs" />
     <Compile Include="AsyncRestaurant.cs" />
     <Compile Include="CustomExceptions.cs" />
+    <Compile Include="Demo-2\Methods_RefNdOutParameter.cs" />
+    <Compile Include="Demo-2\Out.cs" />
+    <Compile Include="Demo-2\Ref.cs" />
     <Compile Include="Example.cs" />
     <Compile Include="Method.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RefOut.cs" />
     <Compile Include="Synchronous.cs" />
     <Compile Include="SynchronousExample.cs" />
   </ItemGroup>

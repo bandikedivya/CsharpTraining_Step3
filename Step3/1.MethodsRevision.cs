@@ -38,13 +38,13 @@ namespace MathCalculation
         {
             int[] numbers = { 5, 6, 9, 10, 15, 19, 20, 25 };
             Program.ArrayDivision(numbers);
-            //string[] output = Program.ArrayDivision(numbers);
-            // Console.WriteLine(output);
-            //foreach (string result in output)
-            //{
-            //    Console.WriteLine(result);
-            //}
-            //int[] number1 = { 2, 3, 4, 5, 6, 7, 8, 9, };
+            string[] output = Program.ArrayDivision(numbers); //Used Program.ArrayDivision(numbers); as the method is static 
+            Console.WriteLine(output);
+            foreach (string result in output)
+            {
+                Console.WriteLine(result);
+            }
+            int[] number1 = { 2, 3, 4, 5, 6, 7, 8, 9, };
         }
     }
 }

@@ -10,21 +10,21 @@ namespace EmpireRestuarant
         {
 
             Console.WriteLine("[Table 1] Ordering Food From Menu");
-            
+
             Console.WriteLine("[Table 1]  Waiting For The Food");
             await Task.Delay(10000);  //10 secs
-            
-            
+
+
             return $"[Table 1] Completed Eating Food and waiting to pay the amount";
         }
         public static async Task<string> Table2Async()
         {
 
             Console.WriteLine("[Table 2] Ordering Food From Menu");
-            
+
             Console.WriteLine("[Table 2] Waiting For The Food");
             await Task.Delay(10000);  //10 secs
-            
+
 
             return $"[Table 2] Completed Eating Food and waiting to pay the amount";
         }
@@ -32,10 +32,10 @@ namespace EmpireRestuarant
         {
 
             Console.WriteLine("[Table 3] Ordering Food From Menu");
-            
+
             Console.WriteLine("[Table 3] Waiting For The Food");
             await Task.Delay(10000);  //10 secs
-            
+
             return $"[Table 3] Completed Eating Food and waiting to pay the amount";
         }
     }
@@ -59,8 +59,8 @@ namespace EmpireRestuarant
 
         //Table 2 Food Making
         public static async Task CookingProcessTable2()
-        { 
-            
+        {
+
             Console.WriteLine("Received Order From Table2");
             var foodstarttime2 = DateTime.Now;
             Console.WriteLine("Started Making Food For Table2");
@@ -74,8 +74,8 @@ namespace EmpireRestuarant
 
         //Table 3 Food Making
         public static async Task CookingProcessTable3()
-        { 
-        Console.WriteLine("Received Order From Table 3");
+        {
+            Console.WriteLine("Received Order From Table 3");
             var foodstarttime3 = DateTime.Now;
             Console.WriteLine("Started Making Food For Table 3");
             await Task.Delay(10000);
@@ -102,7 +102,7 @@ namespace EmpireRestuarant
         }
 
         public static async Task ServingFoodTable3()
-        { 
+        {
             Console.WriteLine("Picked Food For Table 3");
             await Task.Delay(5000);
             Console.WriteLine("Serving Food For Table 3");
@@ -115,7 +115,22 @@ namespace EmpireRestuarant
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("*****************Welcome To Empire Restuarant****************");
             Console.WriteLine("Enter Your Table Number: ");
-            int tableinput1 = int.Parse(Console.ReadLine());
+            int choice1 = int.Parse(Console.ReadLine());
+            switch (choice1)
+            {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    //Console.WriteLine("Enter Your Table Number: ");
+                    
+                    break;
+
+                default:
+                    Console.WriteLine("Sorry, I can only print tables 1 to 5.");
+                    break;
+            }
             Console.WriteLine("******🍽️🍴 Menu *******");
             Console.WriteLine($"1.🥦 Veg  \n" + "2. 🍗 Non Veg \n" + "3. 🍛🥦 Veg Curry \n" + "4. 🍛🍗 Non Veg Curry \n");
             int input1 = int.Parse(Console.ReadLine());
@@ -187,7 +202,7 @@ namespace EmpireRestuarant
 
 
             string[] AllTables = await Task.WhenAll(Table1, Table2, Table3);
-            foreach(string table in AllTables)
+            foreach (string table in AllTables)
             {
                 Console.WriteLine(table);
             }
