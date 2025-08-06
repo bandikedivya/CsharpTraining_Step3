@@ -47,7 +47,11 @@ namespace Demo2Student
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            //It will check the seat/sleaper(value) by the number(key)
+            // It will check the seat/sleaper(value) by the seat number(key)
+            // This is a Predicate delegate named seatcheck, which takes a string seattype as input and returns a bool.
+            // Inside the lambda, I have created a dictionary Redbus, where interger key(seat numbers) maps to seat type string like "Seater" or "Sleeper".
+
+
             Predicate<string> seatcheck = (string seattype) =>
             {
                 Dictionary<int, string> Redbus = new Dictionary<int, string>
@@ -57,8 +61,18 @@ namespace Demo2Student
                     {3, "Sleeper" },
                     {4, "Sleeper" }
                 };
+                
+                //This int.TryParse attempts to parse the input string seattype into a integer seatkey.
+                // This returns true if seattype is a valid integer; else returns false.
+                // For example, if I enter seattype "3", then seatkey becomes the integer 3.
+
+
                 if (int.TryParse(seattype, out int seatkey)) // Built-in/Predefined Method
                 {
+                    // Here, TryGetValue receives the seat number (seatkey) and checks if it exists in the Redbus dictionary.
+                    // For example, if seatkey == 3, then seatname = "Sleeper". If the seat number doesn't exists, it returns false.
+
+
                     if (Redbus.TryGetValue(seatkey, out string seatname)) // Built-in/Predefined Method
                     {
                         return true;
@@ -68,8 +82,13 @@ namespace Demo2Student
                 return false;
             };
 
+
             Console.WriteLine("Please Enter the Seat Number to check Availability");
+
             string input1 = Console.ReadLine();
+
+            //Calls the seatcheck predicate delegate. passing in the input string. The result determines availability.
+
             bool isAvailable1 = seatcheck(input1);
             if (isAvailable1)
             {
@@ -95,8 +114,9 @@ namespace Demo2Student
         // Out Method
         public static void OutMethod(out int id, out string name, out bool status)
         {
-            //id += 1878507; // Throws compile-time error, as id is not assigned. 
+            
             id = 1878507;
+            id += 1878507; // Throws compile-time error, as id is not assigned. 
             name = "Olivia";
             status = true;
 
